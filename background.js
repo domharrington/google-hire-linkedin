@@ -18,7 +18,12 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
-let linkedinTab
+let company;
+chrome.storage.local.get('company', function (result) {
+  company = result.company;
+});
+
+let linkedinTab;
 
 chrome.runtime.onMessage.addListener(function({ type, message }, sender) {
   console.log('received message', { type, message });
@@ -45,7 +50,7 @@ function sendToLinkedin(tab, message) {
 function queryGoogleHire(name) {
   chrome.windows.getCurrent(function (originalWindow) {
     chrome.windows.create({
-      url: 'https://hire.withgoogle.com/t/readmeio/hiring/candidates/browse/all?q=' + encodeURIComponent(`free-text == "${name}"`),
+      url: `https://hire.withgoogle.com/t/${company}/hiring/candidates/browse/all?q=` + encodeURIComponent(`free-text == "${name}"`),
       focused: false,
       left: 0,
       top: 0,
