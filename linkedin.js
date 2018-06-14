@@ -25,7 +25,7 @@ function sendMessage() {
   };
   console.log('Sending message', message);
 
-  chrome.runtime.sendMessage('biampieahnpfemalimhpckjmihkmbena', message);
+  chrome.runtime.sendMessage(chrome.runtime.id, message);
 }
 
 insertNotice();

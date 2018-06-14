@@ -18,6 +18,6 @@ const interval = setInterval(() => {
 
 function sendMessage(message) {
   console.log('Sending message from google-hire.js', message);
-  chrome.runtime.sendMessage('biampieahnpfemalimhpckjmihkmbena', message);
+  chrome.runtime.sendMessage(chrome.runtime.id, message);
   window.close();
 }
