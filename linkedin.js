@@ -1,5 +1,3 @@
-
-
 function insertNotice() {
   const container = document.createElement('div');
   container.classList.add('pv-top-card-v2-section__actions', 'mt2', 'display-flex');
@@ -28,8 +26,10 @@ function sendMessage() {
   chrome.runtime.sendMessage(chrome.runtime.id, message);
 }
 
-insertNotice();
-sendMessage();
+window.addEventListener('load', function () {
+  insertNotice();
+  sendMessage();  
+});
 
   // try {
   //   const app = Ember.Namespace.NAMESPACES.find(function (namespace) {
