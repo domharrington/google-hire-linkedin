@@ -1,5 +1,6 @@
 const interval = setInterval(() => {
-  if (!document.querySelector('.bb-list-table')) return
+  const loaded = document.getElementsByClassName('bb-list-header__count--candidates').length;
+  if (!loaded) return
 
   clearInterval(interval);
 
