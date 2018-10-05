@@ -2,7 +2,13 @@
   "name": "google-hire-linkedin",
   "version": "1.0",
   "description": "Google Hire LinkedIn integration",
-  "permissions": ["activeTab", "declarativeContent", "storage", "https://hire.withgoogle.com/", "https://www.linkedin.com/"],
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "https://hire.withgoogle.com/",
+    "https://www.linkedin.com/"
+  ],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
