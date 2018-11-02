@@ -7,11 +7,13 @@
     "declarativeContent",
     "storage",
     "https://hire.withgoogle.com/",
-    "https://www.linkedin.com/"
+    "https://www.linkedin.com/",
+    "webRequest",
+    "webRequestBlocking"
   ],
   "background": {
     "scripts": ["background.js"],
-    "persistent": false
+    "persistent": true
   },
   "content_scripts": [
     {

@@ -26,10 +26,10 @@ function sendMessage() {
   chrome.runtime.sendMessage(chrome.runtime.id, message);
 }
 
-window.addEventListener('load', function () {
+// window.addEventListener('load', function () {
   insertNotice();
-  sendMessage();  
-});
+  sendMessage();
+// });
 
   // try {
   //   const app = Ember.Namespace.NAMESPACES.find(function (namespace) {

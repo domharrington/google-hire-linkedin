@@ -40,7 +40,10 @@ function sendToLinkedin(tab, message) {
   })
 }
 
+let currentName;
+
 function queryGoogleHire(name) {
+  currentName = name;
   chrome.windows.getCurrent(function (originalWindow) {
     chrome.windows.create({
       url: `https://hire.withgoogle.com/t/${company}/hiring/candidates/browse/all?q=` + encodeURIComponent(`free-text == "${name}"`),
@@ -58,3 +61,11 @@ function queryGoogleHire(name) {
     });
   });
 }
+
+chrome.webRequest.onHeadersReceived.addListener(function(details) {
+  const index = details.responseHeaders.findIndex((header) => {
+    return header.name === 'content-disposition';
+  });
+  details.responseHeaders[index].value = `attachment; filename="${currentName.trim()}.pdf"`
+  return {responseHeaders: details.responseHeaders};
+}, { urls: ['https://www.linkedin.com/**/profile-profilePdf/**'] }, ['blocking', 'responseHeaders']);
